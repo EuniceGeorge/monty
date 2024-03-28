@@ -43,5 +43,6 @@ void f_pop(stack_t **stack, unsigned int line_number);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_swap(stack_t **stack, unsigned int line_number);
 char **string_tokenizer(char *str);
+int is_int(char *str);
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 #endif
