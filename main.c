@@ -9,21 +9,22 @@
 int main(int argc, char **argv)
 {
 	char str[50];
-	int flag;
 	FILE *fp;
 	char **tokens;
 	unsigned int line_number;
-	/*void (*op)(stack_t **, unsigned int);*/
+	void (*op)(stack_t **, unsigned int);
 
-	/*stack_t *head = NULL;*/
+	stack_t **head = NULL;
 	line_number = 0;
 	argc = argc - 1;
+
 	if (argc < 1 || argc > 1)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fp = fopen(argv[1], "r");
+	fp = fopen("./text.txt", "r");
 	if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -32,15 +33,11 @@ int main(int argc, char **argv)
 
 	while (fgets(str, sizeof(str), fp))
 	{
-		/*fprintf(stdout, "%s\n", str);*/
 		tokens = string_tokenizer(str);
-		/*op = get_op_func(tokens[0]);*/
-		flag = is_int(tokens[1]);
-		printf("%d", flag);
-		printf("%d", value);
+		op = get_op_func(tokens[0]);
+		is_int(tokens[1]);
 		line_number += 1;
-		/*op(head, line_number);*/
+		op(head, line_number);
 	}
-	printf("%s\n", tokens[1]);
 	return (0);
 }

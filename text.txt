@@ -1,2 +1,5 @@
-push 12
-push 13
+push 1
+push 100
+push 50
+push -1
+push -199

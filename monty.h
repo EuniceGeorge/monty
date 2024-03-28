@@ -6,6 +6,7 @@
 #include <string.h>
 #include <fcntl.h>
 
+extern int value;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -35,7 +36,6 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-extern int value;
 void f_add(stack_t **stack, unsigned int line_number);
 void f_pall(stack_t **stack, unsigned int line_number);
 void f_pint(stack_t **stack, unsigned int line_number);
@@ -43,6 +43,6 @@ void f_pop(stack_t **stack, unsigned int line_number);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_swap(stack_t **stack, unsigned int line_number);
 char **string_tokenizer(char *str);
-int is_int(char *str);
+void is_int(char *str);
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 #endif
