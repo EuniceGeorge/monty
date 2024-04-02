@@ -8,23 +8,23 @@ char **string_tokenizer(char *str)
 	char *found;
 	int count = 0;
 
-	str_cpy = malloc(strlen(str));
+	str_cpy = malloc(strlen(str) + 1);
 	if (str_cpy == NULL)
 		return (NULL);
 	strcpy(str_cpy, str);
 	found = strtok(str_cpy, " ");
-	while (found != NULL)
+	while (found)
 	{
 		count++;
 		found = strtok(NULL, " ");
 	}
-	inner_arr = malloc(sizeof(char *) * count + 1);
+	inner_arr = malloc(sizeof(char *) * (count + 1));
 	if (inner_arr == NULL)
 		return (NULL);
 	strcpy(str_cpy, str);
 	found = strtok(str_cpy, " ");
 	count = 0;
-	while (found != NULL)
+	while (found)
 	{
 		ptr = malloc(strlen(found) + 1);
 		if (ptr == NULL)
